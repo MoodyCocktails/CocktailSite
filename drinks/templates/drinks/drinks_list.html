@@ -1,4 +1,19 @@
 <html>
 <head>
 <title>Moody Cocktails</title>
+</head>
+<body>
+<div>
+    <h1><a href="/">Moody Cocktails</a></h1>
+</div>
+
+{% for drink in drinks %}
+    <div>
+        <p>published: {{ drink.published_date }}</p>
+        <h2><a href="">{{ drink.name }}</a></h2>
+	<h3>Mood: {{ drink.mood }}</h3>
+        <p>{{ drink.ingredients|linebreaks }}</p>
+    </div>
+{% endfor %}
+</body>
 </html>
