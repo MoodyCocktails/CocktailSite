@@ -1,19 +1,27 @@
+{% load staticfiles %}
 <html>
 <head>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="{% static 'css/drinks.css' %}">
+<link href='https://fonts.googleapis.com/css?family=Oswald:700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 <title>Moody Cocktails</title>
 </head>
 <body>
+<center>
 <div>
-    <h1><a href="/">Moody Cocktails</a></h1>
+    <h1><a href="http://moodycocktails.pythonanywhere.com/">Moody Cocktails</a></h1>
 </div>
 
 {% for drink in drinks %}
     <div>
-        <p>published: {{ drink.published_date }}</p>
         <h2><a href="">{{ drink.name }}</a></h2>
 	<h3>Mood: {{ drink.mood }}</h3>
         <p>{{ drink.ingredients|linebreaks }}</p>
+	<h6>created by: {{ drink.creator }} on {{ drink.published_date }} </h6>
+	<hr>
     </div>
 {% endfor %}
+</center>
 </body>
 </html>
